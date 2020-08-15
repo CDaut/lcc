@@ -1,1 +1,4 @@
 venv/*
+Compiler/bin/*
+Compiler/obj/*
+.idea/*
