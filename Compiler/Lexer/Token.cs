@@ -1,11 +1,12 @@
 using System;
+using System.Linq.Expressions;
 
-namespace Compiler
+namespace Compiler.Lexer
 {
     public class Token
     {
         public TokenType TokenType { get;  set; }
-        public String Value { get; set; }
+        public Object Value { get; set; }
         public int Length { get; set;  }
 
         public Token(TokenType pTokenType)

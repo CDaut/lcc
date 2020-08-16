@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Compiler
+namespace Compiler.Lexer
 {
     class Lexer
     {
@@ -70,7 +70,8 @@ namespace Compiler
                     switch (pattern.GetTokenType())
                     {
                         case TokenType.IntegerLiteralToken:
-                            t.Value = m.Value;
+                            //TODO: Error handling is missing here
+                            t.Value = Int32.Parse(m.Value);
                             break;
                         case TokenType.IdentifierToken:
                             t.Value = m.Value;
@@ -91,6 +92,7 @@ namespace Compiler
                     return t;
                 }
             }
+
             //return the next token
             return new Token(TokenType.InvalidToken);
         }

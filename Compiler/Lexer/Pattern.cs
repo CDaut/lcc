@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace Compiler
+namespace Compiler.Lexer
 {
     public class Pattern
     {
