@@ -20,25 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a54bb6de-191c-4bd1-91ab-3953adfc5dfb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Parser/Exceptions/InvalidIdentifierException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Exceptions/MissingSemicolonException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Exceptions/UnexpectedTokenException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Exceptions/WrongTypeException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/FunctionNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/Node.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/NodeType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/ProgramNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/ReturnNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parser/Parser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lexer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lexer/Lexer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pattern.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lexer/Pattern.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lexer/Token.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TokenType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lexer/TokenType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../grammar" beforeDir="false" afterPath="$PROJECT_DIR$/../grammar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parser/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Parser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,24 +33,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Lexer/TokenType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/44/126d3750/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Nodes/FunctionNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Nodes/Node.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Nodes/NodeType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/InvalidIdentifierException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/UnexpectedTokenException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/MissingSemicolonException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Lexer/Lexer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Compiler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/WrongTypeException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Lexer/Pattern.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Parser/Nodes/ProgramNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EEDBFCB1-C56E-4F7A-8B60-B8DD27E0DC7D/86/71102cca/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Lexer/Token.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Nodes/ReturnNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/UnexpectedTokenException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/WrongTypeException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/InvalidIdentifierException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Exceptions/MissingSemicolonException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/44/126d3750/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EEDBFCB1-C56E-4F7A-8B60-B8DD27E0DC7D/86/71102cca/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Lexer/Lexer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Lexer/Token.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Lexer/TokenType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Lexer/Pattern.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Parser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Compiler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Nodes/ProgramNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Nodes/NodeType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Parser/Nodes/FunctionNode.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -99,10 +83,10 @@
         <option value="$PROJECT_DIR$/Parser/Exceptions/WrongTypeException.cs" />
         <option value="$PROJECT_DIR$/Lexer/Token.cs" />
         <option value="$PROJECT_DIR$/Compiler.cs" />
-        <option value="$PROJECT_DIR$/Parser/Parser.cs" />
         <option value="$PROJECT_DIR$/Lexer/Lexer.cs" />
         <option value="$PROJECT_DIR$/Parser/Nodes/Node.cs" />
         <option value="$PROJECT_DIR$/Parser/Nodes/ReturnNode.cs" />
+        <option value="$PROJECT_DIR$/Parser/Parser.cs" />
       </list>
     </option>
   </component>
@@ -125,7 +109,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.49837133" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager">
     <configuration name="Compiler" type="DotNetProject" factoryName=".NET Project">
@@ -147,6 +131,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -160,11 +145,12 @@
       <workItem from="1597507449039" duration="231000" />
       <workItem from="1597508003307" duration="9480000" />
       <workItem from="1597604480117" duration="13146000" />
+      <workItem from="1597620399423" duration="389000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
@@ -281,10 +267,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2345" y="104" width="709" height="485" key="RiderGenerateDialog/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597619025064" />
-    <state x="886" y="141" width="1031" height="724" key="SettingsEditor" timestamp="1597520511080">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="2233" y="185" width="1031" height="724" key="SettingsEditor" timestamp="1597620460972">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="886" y="141" width="1031" height="724" key="SettingsEditor/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597520511080" />
+    <state x="2233" y="185" width="1031" height="724" key="SettingsEditor/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597620460972" />
     <state x="2560" y="0" width="640" height="1080" key="VCS.FileHistoryDialog" timestamp="1597605666894">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -297,13 +283,13 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2182" y="199" width="432" height="650" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597510086756" />
-    <state x="960" y="557" width="960" height="523" key="dock-window-1" timestamp="1597606916274">
+    <state x="960" y="34" width="960" height="1046" key="dock-window-1" timestamp="1597620461385">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="960" y="557" width="960" height="523" key="dock-window-1/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597606916274" />
-    <state x="960" y="34" width="960" height="523" key="dock-window-2" timestamp="1597606916274">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="960" y="34" width="960" height="1046" key="dock-window-1/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597620461385" />
+    <state x="1920" y="0" width="1920" height="1080" key="dock-window-2" timestamp="1597620461385">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="960" y="34" width="960" height="523" key="dock-window-2/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597606916274" />
+    <state x="1920" y="0" width="1920" height="1080" key="dock-window-2/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597620461385" />
   </component>
 </project>

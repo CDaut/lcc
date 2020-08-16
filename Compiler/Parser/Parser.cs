@@ -73,6 +73,11 @@ namespace Compiler.Parser
                     n.Children.Add(Parse(ref tokenList, NodeType.StatementNode));
 
                     //remove trailing }
+                    if (tokenList[0].TokenType != TokenType.CloseBraceToken)
+                    {
+                        throw new UnexpectedTokenException(TokenType.CloseBraceToken, tokenList[0].TokenType);
+                    }
+
                     tokenList.RemoveAt(0);
                     break;
                 case NodeType.StatementNode:
@@ -93,6 +98,12 @@ namespace Compiler.Parser
                         //add returned child node to AST
                         n.Children.Add(Parse(ref tokenList, NodeType.ExpressionNode));
                         //remove trailing ;
+
+                        if (tokenList[0].TokenType != TokenType.SemicolonToken)
+                        {
+                            throw new UnexpectedTokenException(TokenType.SemicolonToken, tokenList[0].TokenType);
+                        }
+
                         tokenList.RemoveAt(0);
                     }
 
