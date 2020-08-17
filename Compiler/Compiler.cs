@@ -39,8 +39,6 @@ namespace Compiler
 
         static List<Token> TestLexer(string path, int debugLevel)
         {
-            //List<List<Token>> tokenLists = new List<List<Token>>();
-            //string[] files = Directory.GetFiles(path);
             Lexer.Lexer lexer = new Lexer.Lexer();
 
 
@@ -72,12 +70,11 @@ namespace Compiler
             try
             {
                 Node programNode = p.Parse(NodeType.ProgramNode);
+                Console.WriteLine("Parsed \"" + path.Split("/").Last() + "\"");
                 if (debugLevel > 0)
                 {
                     PrettyPrint(programNode, "");
                 }
-
-                Console.WriteLine("Parsed \"" + path.Split("/").Last() + "\"");
             }
             catch (Exception e)
             {
