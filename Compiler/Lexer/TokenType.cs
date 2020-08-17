@@ -14,8 +14,5 @@ namespace Compiler.Lexer
 
         //special Token to represent invalid matches
         InvalidToken,
-
-        //empty toke
-        NullToken
     }
 }
