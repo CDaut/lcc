@@ -9,11 +9,30 @@ namespace Compiler.Parser
 {
     public class Parser
     {
-        public Node Parse(ref List<Token> tokenList, NodeType nodeType)
-        {
-            var t = tokenList.FirstOrDefault();
+        private readonly List<Token> _tokenList;
 
-            if (t == null) throw new Exception("Empty Token List.");
+        public Parser(List<Token> tokenList)
+        {
+            _tokenList = tokenList;
+        }
+
+        private void CheckFirstTokenAndRemove(TokenType expected)
+        {
+            if (_tokenList.Count == 0)
+            {
+                throw new MissingTokenException(expected);
+            }
+
+            if (_tokenList[0].TokenType != expected)
+            {
+                throw new UnexpectedTokenException(expected, _tokenList[0].TokenType);
+            }
+
+            _tokenList.RemoveAt(0);
+        }
+
+        public Node Parse(NodeType nodeType)
+        {
             Node n;
             switch (nodeType)
             {
@@ -21,32 +40,31 @@ namespace Compiler.Parser
                     n = new ProgramNode();
 
                     //if this node is a program node, the next one must be a function node
-                    Node childNode = Parse(ref tokenList, NodeType.FunctionNode);
+                    Node childNode = Parse(NodeType.FunctionNode);
                     n.Children.Add(childNode);
                     break;
 
                 case NodeType.FunctionNode:
                     n = new FunctionNode();
 
-                    //retrieve signature and remove it
-                    List<Token> signature = tokenList.GetRange(0, 5);
-                    tokenList.RemoveRange(0, 5);
-
                     //check each element of the signature and raise corresponding errors
-                    if (signature[0].TokenType != TokenType.IntToken)
+
+                    CheckFirstTokenAndRemove(TokenType.IntToken);
+
+                    if (_tokenList.Count == 0)
                     {
-                        throw new UnexpectedTokenException(TokenType.IntToken, signature[1].TokenType);
+                        throw new MissingTokenException(TokenType.IdentifierToken);
                     }
 
-                    if (signature[1].Value != null)
+                    if (_tokenList[0].Value != null)
                     {
-                        if (signature[1].TokenType == TokenType.IdentifierToken)
+                        if (_tokenList[0].TokenType == TokenType.IdentifierToken)
                         {
-                            ((FunctionNode) n).Name = signature[1].Value.ToString();
+                            ((FunctionNode) n).Name = _tokenList[0].Value.ToString();
                         }
                         else
                         {
-                            throw new UnexpectedTokenException(TokenType.IdentifierToken, signature[1].TokenType);
+                            throw new UnexpectedTokenException(TokenType.IdentifierToken, _tokenList[0].TokenType);
                         }
                     }
                     else
@@ -54,64 +72,48 @@ namespace Compiler.Parser
                         throw new InvalidIdentifierException(null);
                     }
 
-                    if (signature[2].TokenType != TokenType.OpenParenthesisToken)
-                    {
-                        throw new UnexpectedTokenException(TokenType.OpenParenthesisToken, signature[1].TokenType);
-                    }
+                    //remove <id>
+                    _tokenList.RemoveAt(0);
 
-                    if (signature[3].TokenType != TokenType.CloseParenthesisToken)
-                    {
-                        throw new UnexpectedTokenException(TokenType.CloseParenthesisToken, signature[1].TokenType);
-                    }
-
-                    if (signature[4].TokenType != TokenType.OpenBraceToken)
-                    {
-                        throw new UnexpectedTokenException(TokenType.OpenBraceToken, signature[1].TokenType);
-                    }
+                    CheckFirstTokenAndRemove(TokenType.OpenParenthesisToken);
+                    CheckFirstTokenAndRemove(TokenType.CloseParenthesisToken);
+                    CheckFirstTokenAndRemove(TokenType.OpenBraceToken);
 
                     //add returned child node to AST
-                    n.Children.Add(Parse(ref tokenList, NodeType.StatementNode));
+                    n.Children.Add(Parse(NodeType.StatementNode));
 
                     //remove trailing }
-                    if (tokenList[0].TokenType != TokenType.CloseBraceToken)
-                    {
-                        throw new UnexpectedTokenException(TokenType.CloseBraceToken, tokenList[0].TokenType);
-                    }
+                    CheckFirstTokenAndRemove(TokenType.CloseBraceToken);
 
-                    tokenList.RemoveAt(0);
                     break;
+
                 case NodeType.StatementNode:
 
                     //TODO: This Type of return/statement node will probably need fixing later
                     n = new ReturnNode();
 
                     //get return token and remove it
-                    List<Token> returnStatement = tokenList.GetRange(0, 1);
-                    tokenList.RemoveAt(0);
+                    CheckFirstTokenAndRemove(TokenType.ReturnToken);
 
-                    if (returnStatement[0].TokenType != TokenType.ReturnToken)
-                    {
-                        throw new UnexpectedTokenException(TokenType.ReturnToken, returnStatement[0].TokenType);
-                    }
-                    else
-                    {
-                        //add returned child node to AST
-                        n.Children.Add(Parse(ref tokenList, NodeType.ExpressionNode));
-                        //remove trailing ;
+                    //add returned child node to AST
+                    n.Children.Add(Parse(NodeType.ExpressionNode));
 
-                        if (tokenList[0].TokenType != TokenType.SemicolonToken)
-                        {
-                            throw new UnexpectedTokenException(TokenType.SemicolonToken, tokenList[0].TokenType);
-                        }
 
-                        tokenList.RemoveAt(0);
-                    }
+                    //remove trailing ;
+                    CheckFirstTokenAndRemove(TokenType.SemicolonToken);
+
 
                     break;
 
                 case NodeType.ExpressionNode:
 
-                    Token constantToken = tokenList[0];
+                    if (_tokenList.Count == 0)
+                    {
+                        throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                    }
+
+                    Token constantToken = _tokenList[0];
+
                     //check if TokenType is right
                     if (constantToken.TokenType != TokenType.IntegerLiteralToken)
                     {
@@ -119,6 +121,9 @@ namespace Compiler.Parser
                     }
                     else
                     {
+                        //remove int literal token
+                        _tokenList.RemoveAt(0);
+
                         //check if value Type is right
                         if (constantToken.Value.GetType() != typeof(int))
                         {

@@ -10,8 +10,8 @@ namespace Compiler.Lexer
         public List<Token> Lex(String inputString)
         {
             //strip newlines
-            inputString = inputString.Replace("\n", "");
-            inputString = inputString.Replace("\r", "");
+            inputString = inputString.Replace("\n", " ");
+            inputString = inputString.Replace("\r", " ");
 
             //initialize Token List
             List<Token> tokens = new List<Token>();

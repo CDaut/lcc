@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_Compiler.1953847606.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_Compiler.-1470031901.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Compiler.cs" t="Include" />
       <e p="Compiler.csproj" t="IncludeRecursive" />
@@ -17,6 +17,7 @@
         <e p="Exceptions" t="Include">
           <e p="InvalidIdentifierException.cs" t="Include" />
           <e p="MissingSemicolonException.cs" t="Include" />
+          <e p="MissingTokenException.cs" t="Include" />
           <e p="UnexpectedTokenException.cs" t="Include" />
           <e p="WrongTypeException.cs" t="Include" />
         </e>
