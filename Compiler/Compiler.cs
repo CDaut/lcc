@@ -18,17 +18,26 @@ namespace Compiler
             foreach (string filepath in validFiles)
             {
                 List<Token> tokens = TestLexer(filepath, 0);
-                TestParser(tokens, filepath);
+                TestParser(tokens, filepath, 1);
             }
 
             foreach (string filepath in invalidFiles)
             {
                 List<Token> tokens = TestLexer(filepath, 0);
-                TestParser(tokens, filepath);
+                TestParser(tokens, filepath, 1);
             }
         }
 
-        static List<Token> TestLexer(string path, int debug)
+        static void PrettyPrint(Node root, string indent)
+        {
+            Console.WriteLine(indent + root.NodeType);
+            foreach (Node child in root.Children)
+            {
+                PrettyPrint(child, indent + "    ");
+            }
+        }
+
+        static List<Token> TestLexer(string path, int debugLevel)
         {
             //List<List<Token>> tokenLists = new List<List<Token>>();
             //string[] files = Directory.GetFiles(path);
@@ -41,7 +50,7 @@ namespace Compiler
             List<Token> tokens = lexer.Lex(contents);
             Console.WriteLine("Lexed \"" + path.Split("/").Last() + "\"");
 
-            if (debug > 0)
+            if (debugLevel > 0)
             {
                 Console.WriteLine("-----------" + path + "-----------");
                 foreach (Token token in tokens)
@@ -56,13 +65,18 @@ namespace Compiler
             return tokens;
         }
 
-        static void TestParser(List<Token> tokenList, string path)
+        static void TestParser(List<Token> tokenList, string path, int debugLevel)
         {
             Parser.Parser p = new Parser.Parser(tokenList);
 
             try
             {
                 Node programNode = p.Parse(NodeType.ProgramNode);
+                if (debugLevel > 0)
+                {
+                    PrettyPrint(programNode, "");
+                }
+
                 Console.WriteLine("Parsed \"" + path.Split("/").Last() + "\"");
             }
             catch (Exception e)
