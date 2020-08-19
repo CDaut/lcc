@@ -20,14 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a54bb6de-191c-4bd1-91ab-3953adfc5dfb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Generator/Generator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/invalid/missing_paren.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/invalid/missing_retval.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/invalid/no_brace.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/invalid/no_semicolon.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/invalid/no_space.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/invalid/wrong_case.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/valid/multi_digit.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/valid/newlines.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/valid/no_newlines.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/valid/return_0.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/valid/return_2.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../stage_1/valid/spaces.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_compiler.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Nodes/NodeType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Nodes/NodeType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Nodes/ReturnNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Nodes/ReturnNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Parser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/invalid/missing_paren.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/invalid/missing_retval.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/invalid/no_brace.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/invalid/no_semicolon.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/invalid/no_space.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/invalid/wrong_case.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/valid/multi_digit.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/valid/newlines.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/valid/no_newlines.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/valid/return_0.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/valid/return_2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tests/week_1/valid/spaces.c" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +183,7 @@
       <workItem from="1597620399423" duration="389000" />
       <workItem from="1597650936637" duration="537000" />
       <workItem from="1597695400525" duration="4873000" />
-      <workItem from="1597863017034" duration="7430000" />
+      <workItem from="1597863017034" duration="9501000" />
     </task>
     <servers />
   </component>
@@ -202,22 +221,22 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2169" y="170" width="430" height="508" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597507670532" />
-    <state width="1868" height="577" key="GridCell.Tab.0.bottom" timestamp="1597868778558">
+    <state width="908" height="577" key="GridCell.Tab.0.bottom" timestamp="1597872134303">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="577" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597868778558" />
-    <state width="1868" height="577" key="GridCell.Tab.0.center" timestamp="1597868778558">
+    <state width="908" height="577" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597872134303" />
+    <state width="908" height="577" key="GridCell.Tab.0.center" timestamp="1597872134303">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="577" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597868778558" />
-    <state width="1868" height="577" key="GridCell.Tab.0.left" timestamp="1597868778558">
+    <state width="908" height="577" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597872134303" />
+    <state width="908" height="577" key="GridCell.Tab.0.left" timestamp="1597872134302">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="577" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597868778558" />
-    <state width="1868" height="577" key="GridCell.Tab.0.right" timestamp="1597868778558">
+    <state width="908" height="577" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597872134302" />
+    <state width="908" height="577" key="GridCell.Tab.0.right" timestamp="1597872134303">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1868" height="577" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597868778558" />
+    <state width="908" height="577" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597872134303" />
     <state width="1868" height="383" key="GridCell.Tab.1.bottom" timestamp="1597865244687">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -282,10 +301,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="383" key="GridCell.Tab.4.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597865244688" />
-    <state x="1989" y="220" width="806" height="524" key="Rider.ProjectTemplateDialog.Size" timestamp="1597507532464">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="631" y="291" width="806" height="524" key="Rider.ProjectTemplateDialog.Size" timestamp="1597872082099">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1989" y="220" width="806" height="524" key="Rider.ProjectTemplateDialog.Size/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597507532464" />
+    <state x="631" y="291" width="806" height="524" key="Rider.ProjectTemplateDialog.Size/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597872082099" />
     <state x="2336" y="41" width="709" height="485" key="RiderGenerateDialog" timestamp="1597863779733">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

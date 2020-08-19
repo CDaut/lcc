@@ -13,19 +13,35 @@ namespace Compiler
     {
         public static void Main(string[] args)
         {
-            if (args.Length != 1)
+            if (args.Length < 1)
             {
-                Console.WriteLine("Usage: Compiler <input path>");
+                Console.WriteLine("Usage: Compiler <input path> [optional: -v]");
             }
             else
             {
+                bool debug = false;
+                string inputFileName = args[0].Split("/").Last();
                 string outputPath = args[0].Substring(0, args[0].LastIndexOf("/"));
 
-                Compile(args[0], $"{outputPath}/assembly.s");
-                Console.WriteLine($"Compiled to {outputPath}/assembly.s");
+                if (args.Length == 2)
+                {
+                    if (args[2] == "-v")
+                    {
+                        debug = true;
+                    }
+                }
+
+                Compile(args[0], $"{outputPath}/assembly.s", debug);
+                if (debug)
+                {
+                    Console.WriteLine($"Compiled to {outputPath}/assembly.s");
+                }
 
                 ProcessStartInfo startInfo = new ProcessStartInfo()
-                    {FileName = "gcc", Arguments = $"{outputPath}/assembly.s -o {outputPath}/program"};
+                {
+                    FileName = "gcc",
+                    Arguments = $"{outputPath}/assembly.s -o {outputPath}/{inputFileName.Replace(".c", "")}"
+                };
                 Process proc = new Process() {StartInfo = startInfo,};
                 proc.Start();
 
@@ -33,14 +49,19 @@ namespace Compiler
                 {
                     Thread.Sleep(1);
                 }
-                Console.WriteLine($"Assembled to {outputPath}/program");
+
                 File.Delete($"{outputPath}/assembly.s");
-                Console.WriteLine("Deleted assembly.s file. Done!");
+
+                if (debug)
+                {
+                    Console.WriteLine($"Assembled to {outputPath}/program");
+                    Console.WriteLine("Deleted assembly.s file. Done!");
+                }
             }
         }
 
 
-        static void Compile(string inputPath, string outputPath)
+        static void Compile(string inputPath, string outputPath, bool debug)
         {
             //Lexing
             Lexer.Lexer lexer = new Lexer.Lexer();
@@ -50,7 +71,10 @@ namespace Compiler
             string contents = file.ReadToEnd();
 
             List<Token> tokens = lexer.Lex(contents);
-            Console.WriteLine($"Lexed {inputPath.Split("/").Last()}.");
+            if (debug)
+            {
+                Console.WriteLine($"Lexed {inputPath.Split("/").Last()}.");
+            }
 
             //Parsing
             Parser.Parser p = new Parser.Parser(tokens);
@@ -58,7 +82,10 @@ namespace Compiler
             try
             {
                 Node programNode = p.Parse(NodeType.ProgramNode);
-                Console.WriteLine($"Parsed \"{inputPath.Split("/").Last()}\"");
+                if (debug)
+                {
+                    Console.WriteLine($"Parsed \"{inputPath.Split("/").Last()}\"");
+                }
 
                 //Generating
                 Generator.Generator generator = new Generator.Generator();
