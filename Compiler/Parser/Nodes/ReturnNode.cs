@@ -6,7 +6,7 @@ namespace Compiler.Parser.Nodes
 
         public ReturnNode()
         {
-            this.NodeType = NodeType.StatementNode;
+            this.NodeType = NodeType.ReturnStatementNode;
         }
     }
 }

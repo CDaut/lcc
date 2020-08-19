@@ -1,10 +1,10 @@
-namespace Compiler.Parser
+namespace Compiler.Parser.Nodes
 {
     public enum NodeType
     {
         ProgramNode,
         FunctionNode,
-        StatementNode,
+        ReturnStatementNode,
         ExpressionNode
     }
 }

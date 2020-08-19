@@ -80,14 +80,14 @@ namespace Compiler.Parser
                     CheckFirstTokenAndRemove(TokenType.OpenBraceToken);
 
                     //add returned child node to AST
-                    n.Children.Add(Parse(NodeType.StatementNode));
+                    n.Children.Add(Parse(NodeType.ReturnStatementNode));
 
                     //remove trailing }
                     CheckFirstTokenAndRemove(TokenType.CloseBraceToken);
 
                     break;
 
-                case NodeType.StatementNode:
+                case NodeType.ReturnStatementNode:
 
                     //TODO: This Type of return/statement node will probably need fixing later
                     n = new ReturnNode();
