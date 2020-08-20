@@ -139,22 +139,18 @@ namespace Compiler
         {
             switch (root.NodeType)
             {
-                case NodeType.ExpressionNode:
-                    if (root is UnaryOperatorNode)
-                    {
-                        Console.WriteLine(indent + root.NodeType + ":" + ((UnaryOperatorNode) root).OperatorType);
-                    }
-
-                    if (root is ConstantNode)
-                    {
-                        Console.WriteLine(indent + root.NodeType + ":" + ((ConstantNode) root).value);
-                    }
-                    break;
                 case NodeType.FunctionNode:
                     Console.WriteLine(indent + root.NodeType + ":" + ((FunctionNode) root).Name);
                     break;
-                case NodeType.ProgramNode:
-                case NodeType.ReturnStatementNode:
+                case NodeType.ConstantNode:
+                    Console.WriteLine(indent + root.NodeType + ":" + ((ConstantNode) root).value);
+                    break;
+                case NodeType.UnaryOperatorNode:
+                    Console.WriteLine(indent + root.NodeType + ":" + ((UnaryOperatorNode) root).OperatorType);
+                    break;
+
+                default:
+                    Console.WriteLine(indent + root.NodeType);
                     break;
             }
 

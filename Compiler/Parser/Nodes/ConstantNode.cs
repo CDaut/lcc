@@ -7,7 +7,7 @@ namespace Compiler.Parser.Nodes
 
         public ConstantNode(int value)
         {
-            this.NodeType = NodeType.ExpressionNode;
+            this.NodeType = NodeType.ConstantNode;
             this.value = value;
         }
     }

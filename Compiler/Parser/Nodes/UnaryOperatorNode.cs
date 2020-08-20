@@ -8,7 +8,7 @@ namespace Compiler.Parser.Nodes
         public UnaryOperatorNode(OperatorType operatorType)
         {
             OperatorType = operatorType;
-            NodeType = NodeType.ExpressionNode;
+            NodeType = NodeType.UnaryOperatorNode;
         }
     }
 }

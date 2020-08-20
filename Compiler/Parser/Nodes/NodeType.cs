@@ -6,6 +6,8 @@ namespace Compiler.Parser.Nodes
         FunctionNode,
         ReturnStatementNode,
         ExpressionNode,
+        ConstantNode,
+        UnaryOperatorNode
         
     }
 }

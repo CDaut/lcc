@@ -102,7 +102,6 @@ namespace Compiler.Parser
                     //remove trailing ;
                     CheckFirstTokenAndRemove(TokenType.SemicolonToken);
 
-
                     break;
 
                 case NodeType.ExpressionNode:
@@ -114,53 +113,73 @@ namespace Compiler.Parser
 
                     Token expressionToken = _tokenList[0];
 
-                    //the next token might be a constant or any operator
                     switch (expressionToken.TokenType)
                     {
                         case TokenType.IntegerLiteralToken:
-                            //remove int literal token
-                            _tokenList.RemoveAt(0);
-
-                            //check if value Type is right
-                            if (expressionToken.Value.GetType() != typeof(int))
-                            {
-                                throw new WrongTypeException(typeof(int), expressionToken.Value.GetType());
-                            }
-
-                            //return final constant node to end recursion
-                            n = new ConstantNode((int) expressionToken.Value);
-                            break;
-                        case TokenType.NegationToken:
-                            _tokenList.RemoveAt(0);
-                            n = new UnaryOperatorNode(OperatorType.Negation);
-                            n.Children.Add(Parse(NodeType.ExpressionNode));
+                            n = Parse(NodeType.ConstantNode);
                             break;
                         case TokenType.BitwiseComplementToken:
-                            _tokenList.RemoveAt(0);
-                            n = new UnaryOperatorNode(OperatorType.BitwiseComplement);
-                            n.Children.Add(Parse(NodeType.ExpressionNode));
-                            break;
+                        case TokenType.NegationToken:
                         case TokenType.LogicalNegationToken:
-                            _tokenList.RemoveAt(0);
-                            n = new UnaryOperatorNode(OperatorType.LogicalNegation);
-                            n.Children.Add(Parse(NodeType.ExpressionNode));
+                            n = Parse(NodeType.UnaryOperatorNode);
                             break;
-                        case TokenType.IntToken:
-                        case TokenType.OpenParenthesisToken:
-                        case TokenType.CloseParenthesisToken:
-                        case TokenType.OpenBraceToken:
-                        case TokenType.CloseBraceToken:
-                        case TokenType.ReturnToken:
-                        case TokenType.SemicolonToken:
-                        case TokenType.IdentifierToken:
-                        case TokenType.InvalidToken:
-                            throw new UnexpectedTokenException(TokenType.IntToken, expressionToken.TokenType);
                         default:
-                            throw new UnexpectedTokenException(TokenType.IntToken, expressionToken.TokenType);
+                            throw new UnexpectedTokenException(TokenType.IntegerLiteralToken,
+                                expressionToken.TokenType);
+                    }
+                    break;
+
+                case NodeType.UnaryOperatorNode:
+                    if (_tokenList.Count == 0)
+                    {
+                        throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                    }
+                    else
+                    {
+                        Token unaryOperator = _tokenList[0];
+                        _tokenList.RemoveAt(0);
+
+                        switch (unaryOperator.TokenType)
+                        {
+                            case TokenType.BitwiseComplementToken:
+                                n = new UnaryOperatorNode(OperatorType.BitwiseComplement);
+                                n.Children.Add(Parse(NodeType.ExpressionNode));
+                                break;
+                            case TokenType.NegationToken:
+                                n = new UnaryOperatorNode(OperatorType.Negation);
+                                n.Children.Add(Parse(NodeType.ExpressionNode));
+                                break;
+                            case TokenType.LogicalNegationToken:
+                                n = new UnaryOperatorNode(OperatorType.LogicalNegation);
+                                n.Children.Add(Parse(NodeType.ExpressionNode));
+                                break;
+                            default:
+                                throw new UnexpectedTokenException(TokenType.IntegerLiteralToken,
+                                    unaryOperator.TokenType);
+                        }
                     }
 
                     break;
 
+                case NodeType.ConstantNode:
+
+                    if (_tokenList.Count == 0)
+                    {
+                        throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                    }
+
+                    //double check, for safety. Pbly unnecesarry
+                    if (_tokenList[0].TokenType != TokenType.IntegerLiteralToken)
+                    {
+                        throw new UnexpectedTokenException(TokenType.IntegerLiteralToken, _tokenList[0].TokenType);
+                    }
+                    else
+                    {
+                        //return final constant node to end recursion
+                        n = new ConstantNode((int) _tokenList[0].Value);
+                        _tokenList.RemoveAt(0);
+                        break;
+                    }
                 default:
                     throw new Exception("Unknown Node Type " + nodeType);
             }
