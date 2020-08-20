@@ -32,14 +32,40 @@ namespace Compiler.Generator
                         $"{functionBody}";
                     break;
                 case NodeType.ReturnStatementNode:
-                    s = $"movl ${Generate(rootNode.Children[0])}, %eax \n" +
+                    s = $"{Generate(rootNode.Children[0])}" +
                         "ret\n";
                     break;
                 case NodeType.ExpressionNode:
-                    s = ((ConstantNode) rootNode).value.ToString();
+                    s = Generate(rootNode.Children[0]);
+                    break;
+                case NodeType.ConstantNode:
+                    s = $"movl ${((ConstantNode) rootNode).value.ToString()}, %eax\n";
+                    break;
+                case NodeType.UnaryOperatorNode:
+                    switch (((UnaryOperatorNode) rootNode).OperatorType)
+                    {
+                        case OperatorType.Negation:
+                            s = $"{Generate(rootNode.Children[0])}" +
+                                "neg %eax\n";
+                            break;
+                        case OperatorType.BitwiseComplement:
+                            s = $"{Generate(rootNode.Children[0])}" +
+                                "not %eax\n";
+                            break;
+                        case OperatorType.LogicalNegation:
+                            s = $"{Generate(rootNode.Children[0])}" +
+                                "cmpl $0, %eax\n" +
+                                "movl $0, %eax\n" + //xorl %eax, %eax should also work, but doesn't
+                                "sete %al\n";
+                            break;
+                        default:
+                            throw new NotSpecifiedException(NodeType.UnaryOperatorNode,
+                                ((UnaryOperatorNode) rootNode).OperatorType);
+                    }
+
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new NotSpecifiedException(rootNode.NodeType);
             }
 
             return s;

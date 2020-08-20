@@ -7,8 +7,10 @@
       <e p="Compiler.cs" t="Include" />
       <e p="Compiler.csproj" t="IncludeRecursive" />
       <e p="Compiler.sln" t="IncludeFlat" />
+      <e p="DevFunctions.cs" t="Include" />
       <e p="Generator" t="Include">
         <e p="Generator.cs" t="Include" />
+        <e p="NotSpecifiedException.cs" t="Include" />
       </e>
       <e p="Lexer" t="Include">
         <e p="Lexer.cs" t="Include" />
