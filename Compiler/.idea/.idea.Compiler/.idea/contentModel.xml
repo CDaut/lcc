@@ -29,8 +29,10 @@
           <e p="FunctionNode.cs" t="Include" />
           <e p="Node.cs" t="Include" />
           <e p="NodeType.cs" t="Include" />
+          <e p="OperatorType.cs" t="Include" />
           <e p="ProgramNode.cs" t="Include" />
           <e p="ReturnNode.cs" t="Include" />
+          <e p="UnaryOperatorNode.cs" t="Include" />
         </e>
         <e p="Parser.cs" t="Include" />
       </e>

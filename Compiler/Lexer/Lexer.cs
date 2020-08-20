@@ -47,6 +47,9 @@ namespace Compiler.Lexer
             patterns.Add(new Pattern(@"^;", TokenType.SemicolonToken));
             patterns.Add(new Pattern(@"^[a-zA-Z]\w*", TokenType.IdentifierToken));
             patterns.Add(new Pattern(@"^[0-9]+", TokenType.IntegerLiteralToken));
+            patterns.Add(new Pattern(@"^-", TokenType.NegationToken));
+            patterns.Add(new Pattern(@"^~", TokenType.BitwiseComplementToken));
+            patterns.Add(new Pattern(@"^!", TokenType.LogicalNegationToken));
 
             //try each pattern do determine if it is the one matching at the beginning
             //TODO: There sure is room for optimization here
@@ -83,6 +86,10 @@ namespace Compiler.Lexer
                         case TokenType.CloseBraceToken:
                         case TokenType.IntToken:
                         case TokenType.SemicolonToken:
+                        case TokenType.NegationToken:
+                        case TokenType.BitwiseComplementToken:
+                        case TokenType.LogicalNegationToken:
+                        case TokenType.InvalidToken:
                             break;
                         default:
                             t.TokenType = TokenType.InvalidToken;

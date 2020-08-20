@@ -5,6 +5,7 @@ namespace Compiler.Parser.Nodes
         ProgramNode,
         FunctionNode,
         ReturnStatementNode,
-        ExpressionNode
+        ExpressionNode,
+        
     }
 }

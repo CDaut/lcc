@@ -112,26 +112,51 @@ namespace Compiler.Parser
                         throw new MissingTokenException(TokenType.IntegerLiteralToken);
                     }
 
-                    Token constantToken = _tokenList[0];
+                    Token expressionToken = _tokenList[0];
 
-                    //check if TokenType is right
-                    if (constantToken.TokenType != TokenType.IntegerLiteralToken)
+                    //the next token might be a constant or any operator
+                    switch (expressionToken.TokenType)
                     {
-                        throw new UnexpectedTokenException(TokenType.IntToken, constantToken.TokenType);
-                    }
-                    else
-                    {
-                        //remove int literal token
-                        _tokenList.RemoveAt(0);
+                        case TokenType.IntegerLiteralToken:
+                            //remove int literal token
+                            _tokenList.RemoveAt(0);
 
-                        //check if value Type is right
-                        if (constantToken.Value.GetType() != typeof(int))
-                        {
-                            throw new WrongTypeException(typeof(int), constantToken.Value.GetType());
-                        }
+                            //check if value Type is right
+                            if (expressionToken.Value.GetType() != typeof(int))
+                            {
+                                throw new WrongTypeException(typeof(int), expressionToken.Value.GetType());
+                            }
 
-                        //return final constant node to end recursion
-                        n = new ConstantNode((int) constantToken.Value);
+                            //return final constant node to end recursion
+                            n = new ConstantNode((int) expressionToken.Value);
+                            break;
+                        case TokenType.NegationToken:
+                            _tokenList.RemoveAt(0);
+                            n = new UnaryOperatorNode(OperatorType.Negation);
+                            n.Children.Add(Parse(NodeType.ExpressionNode));
+                            break;
+                        case TokenType.BitwiseComplementToken:
+                            _tokenList.RemoveAt(0);
+                            n = new UnaryOperatorNode(OperatorType.BitwiseComplement);
+                            n.Children.Add(Parse(NodeType.ExpressionNode));
+                            break;
+                        case TokenType.LogicalNegationToken:
+                            _tokenList.RemoveAt(0);
+                            n = new UnaryOperatorNode(OperatorType.LogicalNegation);
+                            n.Children.Add(Parse(NodeType.ExpressionNode));
+                            break;
+                        case TokenType.IntToken:
+                        case TokenType.OpenParenthesisToken:
+                        case TokenType.CloseParenthesisToken:
+                        case TokenType.OpenBraceToken:
+                        case TokenType.CloseBraceToken:
+                        case TokenType.ReturnToken:
+                        case TokenType.SemicolonToken:
+                        case TokenType.IdentifierToken:
+                        case TokenType.InvalidToken:
+                            throw new UnexpectedTokenException(TokenType.IntToken, expressionToken.TokenType);
+                        default:
+                            throw new UnexpectedTokenException(TokenType.IntToken, expressionToken.TokenType);
                     }
 
                     break;

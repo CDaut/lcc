@@ -11,6 +11,11 @@ namespace Compiler.Lexer
         SemicolonToken,
         IdentifierToken,
         IntegerLiteralToken,
+        
+        //unary operator tokens
+        NegationToken,
+        BitwiseComplementToken,
+        LogicalNegationToken,
 
         //special Token to represent invalid matches
         InvalidToken,

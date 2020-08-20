@@ -19,44 +19,79 @@ namespace Compiler
             }
             else
             {
-                bool debug = false;
-                string inputFileName = args[0].Split("/").Last();
-                string outputPath = args[0].Substring(0, args[0].LastIndexOf("/"));
-
-                if (args.Length == 2)
+                if (args[0] != "--dev-mode--")
                 {
-                    if (args[2] == "-v")
-                    {
-                        debug = true;
-                    }
+                    NonDevMode(args);
+                }
+                else
+                {
+                    DevMode();
+                }
+            }
+        }
+
+        static void DevMode()
+        {
+            for (int i = 1; i <= 2; i++)
+            {
+                Console.WriteLine($"---------------------valid, stage {i}-------------------------------");
+                foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/valid"))
+                {
+                    Console.WriteLine("-------------");
+                    List<Token> tokens = TestLexer(file, 0);
+                    TestParser(tokens, file, 1);
                 }
 
-                Compile(args[0], $"{outputPath}/assembly.s", debug);
-                if (debug)
+
+                Console.WriteLine($"---------------------invalid, stage {i}-------------------------------");
+                foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/invalid"))
                 {
-                    Console.WriteLine($"Compiled to {outputPath}/assembly.s");
+                    Console.WriteLine("-------------");
+                    List<Token> tokens = TestLexer(file, 0);
+                    TestParser(tokens, file, 1);
                 }
+            }
+        }
 
-                ProcessStartInfo startInfo = new ProcessStartInfo()
-                {
-                    FileName = "gcc",
-                    Arguments = $"{outputPath}/assembly.s -o {outputPath}/{inputFileName.Replace(".c", "")}"
-                };
-                Process proc = new Process() {StartInfo = startInfo,};
-                proc.Start();
+        static void NonDevMode(string[] args)
+        {
+            bool debug = false;
+            string inputFileName = args[0].Split("/").Last();
+            string outputPath = args[0].Substring(0, args[0].LastIndexOf("/"));
 
-                while (!proc.HasExited)
+            if (args.Length == 2)
+            {
+                if (args[2] == "-v")
                 {
-                    Thread.Sleep(1);
+                    debug = true;
                 }
+            }
 
-                File.Delete($"{outputPath}/assembly.s");
+            Compile(args[0], $"{outputPath}/assembly.s", debug);
+            if (debug)
+            {
+                Console.WriteLine($"Compiled to {outputPath}/assembly.s");
+            }
 
-                if (debug)
-                {
-                    Console.WriteLine($"Assembled to {outputPath}/program");
-                    Console.WriteLine("Deleted assembly.s file. Done!");
-                }
+            ProcessStartInfo startInfo = new ProcessStartInfo()
+            {
+                FileName = "gcc",
+                Arguments = $"{outputPath}/assembly.s -o {outputPath}/{inputFileName.Replace(".c", "")}"
+            };
+            Process proc = new Process() {StartInfo = startInfo,};
+            proc.Start();
+
+            while (!proc.HasExited)
+            {
+                Thread.Sleep(1);
+            }
+
+            File.Delete($"{outputPath}/assembly.s");
+
+            if (debug)
+            {
+                Console.WriteLine($"Assembled to {outputPath}/program");
+                Console.WriteLine("Deleted assembly.s file. Done!");
             }
         }
 
@@ -102,7 +137,27 @@ namespace Compiler
 
         static void PrettyPrint(Node root, string indent)
         {
-            Console.WriteLine(indent + root.NodeType);
+            switch (root.NodeType)
+            {
+                case NodeType.ExpressionNode:
+                    if (root is UnaryOperatorNode)
+                    {
+                        Console.WriteLine(indent + root.NodeType + ":" + ((UnaryOperatorNode) root).OperatorType);
+                    }
+
+                    if (root is ConstantNode)
+                    {
+                        Console.WriteLine(indent + root.NodeType + ":" + ((ConstantNode) root).value);
+                    }
+                    break;
+                case NodeType.FunctionNode:
+                    Console.WriteLine(indent + root.NodeType + ":" + ((FunctionNode) root).Name);
+                    break;
+                case NodeType.ProgramNode:
+                case NodeType.ReturnStatementNode:
+                    break;
+            }
+
             foreach (Node child in root.Children)
             {
                 PrettyPrint(child, indent + "    ");
