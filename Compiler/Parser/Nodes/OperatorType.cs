@@ -6,5 +6,11 @@ namespace Compiler.Parser.Nodes
         Negation,
         BitwiseComplement,
         LogicalNegation,
+        
+        //binary operators
+        Addition,
+        Subtraction,
+        Multiplication,
+        Division
     }
 }

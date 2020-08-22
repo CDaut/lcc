@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Compiler.Lexer;
 using Compiler.Parser.Exceptions;
 using Compiler.Parser.Nodes;
@@ -111,22 +110,118 @@ namespace Compiler.Parser
                         throw new MissingTokenException(TokenType.IntegerLiteralToken);
                     }
 
+                    Node firstTerm = Parse(NodeType.TermNode);
+                    n = firstTerm;
+
                     Token expressionToken = _tokenList[0];
 
-                    switch (expressionToken.TokenType)
+                    while (expressionToken.TokenType == TokenType.AdditionToken ||
+                           expressionToken.TokenType == TokenType.NegationToken)
                     {
+                        _tokenList.RemoveAt(0);
+                        switch (expressionToken.TokenType)
+                        {
+                            case TokenType.AdditionToken:
+                                n = new BinaryOperatorNode(OperatorType.Addition);
+                                n.Children.Add(firstTerm);
+                                n.Children.Add(Parse(NodeType.TermNode));
+                                break;
+                            case TokenType.NegationToken:
+                                n = new BinaryOperatorNode(OperatorType.Subtraction);
+                                n.Children.Add(firstTerm);
+                                n.Children.Add(Parse(NodeType.TermNode));
+                                break;
+                            default:
+                                throw new Exception("WeirdException");
+                        }
+
+                        if (_tokenList.Count > 0)
+                        {
+                            expressionToken = _tokenList[0];
+                        }
+                        else
+                        {
+                            throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                        }
+                    }
+
+                    break;
+
+                case NodeType.TermNode:
+
+
+                    if (_tokenList.Count == 0)
+                    {
+                        throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                    }
+
+                    Node firstFactor = Parse(NodeType.FactorNode);
+                    n = firstFactor;
+
+                    Token termToken = _tokenList[0];
+
+                    while (termToken.TokenType == TokenType.MultiplicationToken ||
+                           termToken.TokenType == TokenType.DivisionToken)
+                    {
+                        _tokenList.RemoveAt(0);
+                        switch (termToken.TokenType)
+                        {
+                            case TokenType.MultiplicationToken:
+                                n = new BinaryOperatorNode(OperatorType.Multiplication);
+                                n.Children.Add(firstFactor);
+                                n.Children.Add(Parse(NodeType.FactorNode));
+                                break;
+
+                            case TokenType.DivisionToken:
+                                n = new BinaryOperatorNode(OperatorType.Division);
+                                n.Children.Add(firstFactor);
+                                n.Children.Add(Parse(NodeType.FactorNode));
+                                break;
+                            default:
+                                throw new Exception("WeirdException");
+                        }
+
+                        if (_tokenList.Count > 0)
+                        {
+                            termToken = _tokenList[0];
+                        }
+                        else
+                        {
+                            throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                        }
+                    }
+
+                    break;
+
+                case NodeType.FactorNode:
+                    if (_tokenList.Count == 0)
+                    {
+                        throw new MissingTokenException(TokenType.IntegerLiteralToken);
+                    }
+
+                    Token factorToken = _tokenList[0];
+
+                    switch (factorToken.TokenType)
+                    {
+                        case TokenType.OpenParenthesisToken:
+                            CheckFirstTokenAndRemove(TokenType.OpenParenthesisToken);
+                            n = Parse(NodeType.ExpressionNode);
+                            CheckFirstTokenAndRemove(TokenType.CloseParenthesisToken);
+                            break;
+                        case TokenType.NegationToken:
+                        case TokenType.BitwiseComplementToken:
+                        case TokenType.LogicalNegationToken:
+                            n = Parse(NodeType.UnaryOperatorNode);
+                            n.Children.Add(Parse(NodeType.FactorNode));
+                            break;
                         case TokenType.IntegerLiteralToken:
                             n = Parse(NodeType.ConstantNode);
                             break;
-                        case TokenType.BitwiseComplementToken:
-                        case TokenType.NegationToken:
-                        case TokenType.LogicalNegationToken:
-                            n = Parse(NodeType.UnaryOperatorNode);
-                            break;
                         default:
                             throw new UnexpectedTokenException(TokenType.IntegerLiteralToken,
-                                expressionToken.TokenType);
+                                factorToken.TokenType);
                     }
+
                     break;
 
                 case NodeType.UnaryOperatorNode:
@@ -180,6 +275,7 @@ namespace Compiler.Parser
                         _tokenList.RemoveAt(0);
                         break;
                     }
+
                 default:
                     throw new Exception("Unknown Node Type " + nodeType);
             }

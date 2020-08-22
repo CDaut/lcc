@@ -22,15 +22,22 @@ namespace Compiler
                 case NodeType.UnaryOperatorNode:
                     Console.WriteLine(indent + root.NodeType + ":" + ((UnaryOperatorNode) root).OperatorType);
                     break;
+                case NodeType.BinaryOperatorNode:
+                    Console.WriteLine(indent + root.NodeType + ":" + ((BinaryOperatorNode) root).OperatorType);
+                    break;
 
                 default:
                     Console.WriteLine(indent + root.NodeType);
                     break;
             }
 
+
             foreach (Node child in root.Children)
             {
-                PrettyPrint(child, indent + "    ");
+                if (child != null)
+                {
+                    PrettyPrint(child, indent + "    ");
+                }
             }
         }
 
@@ -97,7 +104,7 @@ namespace Compiler
 
         public static void DevMode()
         {
-            for (int i = 1; i <= 2; i++)
+            for (int i = 3; i <= 3; i++)
             {
                 Console.WriteLine($"---------------------valid, stage {i}-------------------------------");
                 foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/valid"))
@@ -105,7 +112,7 @@ namespace Compiler
                     Console.WriteLine("-------------");
                     List<Token> tokens = TestLexer(file, 0);
                     Node programNode = TestParser(tokens, file, 1);
-                    TestGenerator(programNode, 1);
+                    //TestGenerator(programNode, 1);
                 }
 
                 /*
@@ -114,8 +121,8 @@ namespace Compiler
                 {
                     Console.WriteLine("-------------");
                     List<Token> tokens = TestLexer(file, 0);
-                    Node programNode = TestParser(tokens, file, 0);
-                    TestGenerator(programNode, 1);
+                    Node programNode = TestParser(tokens, file, 1);
+                    //TestGenerator(programNode, 1);
                 }
                 */
             }

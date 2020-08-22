@@ -50,6 +50,9 @@ namespace Compiler.Lexer
             patterns.Add(new Pattern(@"^-", TokenType.NegationToken));
             patterns.Add(new Pattern(@"^~", TokenType.BitwiseComplementToken));
             patterns.Add(new Pattern(@"^!", TokenType.LogicalNegationToken));
+            patterns.Add(new Pattern(@"^\+", TokenType.AdditionToken));
+            patterns.Add(new Pattern(@"^\*", TokenType.MultiplicationToken));
+            patterns.Add(new Pattern(@"^\/", TokenType.DivisionToken));
 
             //try each pattern do determine if it is the one matching at the beginning
             //TODO: There sure is room for optimization here
@@ -90,6 +93,9 @@ namespace Compiler.Lexer
                         case TokenType.BitwiseComplementToken:
                         case TokenType.LogicalNegationToken:
                         case TokenType.InvalidToken:
+                        case TokenType.AdditionToken:
+                        case TokenType.DivisionToken:
+                        case TokenType.MultiplicationToken:
                             break;
                         default:
                             t.TokenType = TokenType.InvalidToken;

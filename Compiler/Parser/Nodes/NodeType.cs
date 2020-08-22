@@ -7,7 +7,10 @@ namespace Compiler.Parser.Nodes
         ReturnStatementNode,
         ExpressionNode,
         ConstantNode,
-        UnaryOperatorNode
+        UnaryOperatorNode,
+        BinaryOperatorNode,
+        TermNode,
+        FactorNode
         
     }
 }

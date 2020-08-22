@@ -27,6 +27,7 @@
           <e p="WrongTypeException.cs" t="Include" />
         </e>
         <e p="Nodes" t="Include">
+          <e p="BinaryOperatorNode.cs" t="Include" />
           <e p="ConstantNode.cs" t="Include" />
           <e p="FunctionNode.cs" t="Include" />
           <e p="Node.cs" t="Include" />
