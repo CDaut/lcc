@@ -115,7 +115,7 @@ namespace Compiler
                     //TestGenerator(programNode, 1);
                 }
 
-                /*
+                
                 Console.WriteLine($"---------------------invalid, stage {i}-------------------------------");
                 foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/invalid"))
                 {
@@ -124,7 +124,7 @@ namespace Compiler
                     Node programNode = TestParser(tokens, file, 1);
                     //TestGenerator(programNode, 1);
                 }
-                */
+                
             }
         }
     }
