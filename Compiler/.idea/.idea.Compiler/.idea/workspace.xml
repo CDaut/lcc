@@ -20,34 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a54bb6de-191c-4bd1-91ab-3953adfc5dfb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Parser/Nodes/BinaryOperatorNode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/invalid/malformed_paren.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/invalid/missing_first_op.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/invalid/missing_second_op.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/invalid/no_semicolon.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/add.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/associativity.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/associativity_2.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/div.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/div_neg.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/mult.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/parens.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/precedence.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/sub.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/sub_neg.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/unop_add.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../stage_3/valid/unop_parens.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevFunctions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DevFunctions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lexer/Lexer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lexer/Lexer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lexer/TokenType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lexer/TokenType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Nodes/NodeType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Nodes/NodeType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Nodes/OperatorType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Nodes/OperatorType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Parser/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Parser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../grammar" beforeDir="false" afterPath="$PROJECT_DIR$/../grammar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +42,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Compiler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/44/126d3750/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/714153FB-3DE5-4537-8A59-8AE8F7F7655E/46/638f55dc/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Lexer/Lexer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Lexer/Token.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EEDBFCB1-C56E-4F7A-8B60-B8DD27E0DC7D/86/71102cca/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,9 +104,9 @@
         <option value="$PROJECT_DIR$/Parser/Nodes/NodeType.cs" />
         <option value="$PROJECT_DIR$/Parser/Nodes/BinaryOperatorNode.cs" />
         <option value="$PROJECT_DIR$/Parser/Nodes/OperatorType.cs" />
-        <option value="$PROJECT_DIR$/../grammar" />
         <option value="$PROJECT_DIR$/DevFunctions.cs" />
         <option value="$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" />
+        <option value="$PROJECT_DIR$/../grammar" />
         <option value="$PROJECT_DIR$/Parser/Parser.cs" />
       </list>
     </option>
@@ -200,6 +174,7 @@
       <workItem from="1597952695048" duration="9233000" />
       <workItem from="1598037838306" duration="329000" />
       <workItem from="1598123734996" duration="12557000" />
+      <workItem from="1598197309733" duration="2871000" />
     </task>
     <servers />
   </component>
@@ -257,70 +232,70 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1868" height="383" key="GridCell.Tab.-1.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597955238557" />
-    <state width="1292" height="330" key="GridCell.Tab.0.bottom" timestamp="1598136287234">
+    <state width="1292" height="249" key="GridCell.Tab.0.bottom" timestamp="1598199247638">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.0.center" timestamp="1598136287234">
+    <state width="1292" height="249" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199247638" />
+    <state width="1292" height="249" key="GridCell.Tab.0.center" timestamp="1598199247638">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.0.left" timestamp="1598136287234">
+    <state width="1292" height="249" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199247638" />
+    <state width="1292" height="249" key="GridCell.Tab.0.left" timestamp="1598199247638">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.0.right" timestamp="1598136287234">
+    <state width="1292" height="249" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199247638" />
+    <state width="1292" height="249" key="GridCell.Tab.0.right" timestamp="1598199247638">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.1.bottom" timestamp="1598136287234">
+    <state width="1292" height="249" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199247638" />
+    <state width="1292" height="330" key="GridCell.Tab.1.bottom" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.1.center" timestamp="1598136287234">
+    <state width="1292" height="330" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.1.center" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.1.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.1.left" timestamp="1598136287234">
+    <state width="1292" height="330" key="GridCell.Tab.1.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.1.left" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.1.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.1.right" timestamp="1598136287234">
+    <state width="1292" height="330" key="GridCell.Tab.1.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.1.right" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.1.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.2.bottom" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.1.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.2.bottom" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.2.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
-    <state width="1292" height="330" key="GridCell.Tab.2.center" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.2.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.2.center" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.2.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
-    <state width="1292" height="330" key="GridCell.Tab.2.left" timestamp="1598136287234">
+    <state width="1292" height="330" key="GridCell.Tab.2.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.2.left" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.2.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287234" />
-    <state width="1292" height="330" key="GridCell.Tab.2.right" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.2.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.2.right" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.2.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
-    <state width="1292" height="330" key="GridCell.Tab.3.bottom" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.2.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.3.bottom" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.3.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
-    <state width="1292" height="330" key="GridCell.Tab.3.center" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.3.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.3.center" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.3.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
-    <state width="1292" height="330" key="GridCell.Tab.3.left" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.3.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.3.left" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.3.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
-    <state width="1292" height="330" key="GridCell.Tab.3.right" timestamp="1598136287235">
+    <state width="1292" height="330" key="GridCell.Tab.3.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
+    <state width="1292" height="330" key="GridCell.Tab.3.right" timestamp="1598199019855">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1292" height="330" key="GridCell.Tab.3.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598136287235" />
+    <state width="1292" height="330" key="GridCell.Tab.3.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199019855" />
     <state width="1868" height="383" key="GridCell.Tab.4.bottom" timestamp="1597955234640">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -361,10 +336,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2182" y="199" width="432" height="650" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1597510086756" />
-    <state x="3264" y="0" width="576" height="1080" key="dock-window-1" timestamp="1598127152431">
+    <state x="3264" y="0" width="576" height="1080" key="dock-window-1" timestamp="1598199648208">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="3264" y="0" width="576" height="1080" key="dock-window-1/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598127152431" />
+    <state x="3264" y="0" width="576" height="1080" key="dock-window-1/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1598199648208" />
     <state x="3200" y="0" width="640" height="1080" key="dock-window-2" timestamp="1597959520918">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -396,18 +371,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Parser/Parser.cs</url>
-          <line>107</line>
-          <properties documentPath="$PROJECT_DIR$/Parser/Parser.cs" initialLine="107">
+          <line>261</line>
+          <properties documentPath="$PROJECT_DIR$/Parser/Parser.cs" initialLine="227">
             <startOffsets>
-              <option value="3498" />
+              <option value="10821" />
             </startOffsets>
             <endOffsets>
-              <option value="3524" />
+              <option value="10847" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#Compiler.Parser.Nodes.Node" memberName="Children" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
