@@ -32,7 +32,7 @@ namespace Compiler.Parser
         }
 
         //The main RDP function
-        public Node Parse(NodeType nodeType)
+        public Node Parse(NodeType nodeType, bool unopPrecedence = false)
         {
             //declare node to be returned
             Node n;
@@ -125,8 +125,9 @@ namespace Compiler.Parser
 
                     //if the next token is a + or a - it must be a binary operator because we are in an expression
                     //that means that this is not a plain constant but a BinaryOperator node
-                    while (expressionToken.TokenType == TokenType.AdditionToken ||
-                           expressionToken.TokenType == TokenType.NegationToken)
+                    //also check if the last token was a unary operator
+                    while ((expressionToken.TokenType == TokenType.AdditionToken ||
+                            expressionToken.TokenType == TokenType.NegationToken) && !unopPrecedence)
                     {
                         //remove the - or + token
                         _tokenList.RemoveAt(0);
@@ -181,8 +182,8 @@ namespace Compiler.Parser
                     Token termToken = _tokenList[0];
 
                     //parse second factor if it exists
-                    while (termToken.TokenType == TokenType.MultiplicationToken ||
-                           termToken.TokenType == TokenType.DivisionToken)
+                    while ((termToken.TokenType == TokenType.MultiplicationToken ||
+                            termToken.TokenType == TokenType.DivisionToken) && !unopPrecedence)
                     {
                         _tokenList.RemoveAt(0);
                         switch (termToken.TokenType)
@@ -214,7 +215,7 @@ namespace Compiler.Parser
 
                     break;
 
-                
+
                 case NodeType.FactorNode:
                     if (_tokenList.Count == 0)
                     {
@@ -224,7 +225,7 @@ namespace Compiler.Parser
                     Token factorToken = _tokenList[0];
 
                     //switch over possible next tokens. There are three possible options 
-                    
+
                     switch (factorToken.TokenType)
                     {
                         //first option:
@@ -274,15 +275,15 @@ namespace Compiler.Parser
                         {
                             case TokenType.BitwiseComplementToken:
                                 n = new UnaryOperatorNode(OperatorType.BitwiseComplement);
-                                n.Children.Add(Parse(NodeType.ExpressionNode));
+                                n.Children.Add(Parse(NodeType.ExpressionNode, unopPrecedence = true));
                                 break;
                             case TokenType.NegationToken:
                                 n = new UnaryOperatorNode(OperatorType.Negation);
-                                n.Children.Add(Parse(NodeType.ExpressionNode));
+                                n.Children.Add(Parse(NodeType.ExpressionNode, unopPrecedence = true));
                                 break;
                             case TokenType.LogicalNegationToken:
                                 n = new UnaryOperatorNode(OperatorType.LogicalNegation);
-                                n.Children.Add(Parse(NodeType.ExpressionNode));
+                                n.Children.Add(Parse(NodeType.ExpressionNode, unopPrecedence = true));
                                 break;
                             default:
                                 throw new UnexpectedTokenException(TokenType.IntegerLiteralToken,

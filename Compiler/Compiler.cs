@@ -38,7 +38,7 @@ namespace Compiler
 
             if (args.Length == 2)
             {
-                if (args[2] == "-v")
+                if (args[1] == "-v")
                 {
                     debug = true;
                 }

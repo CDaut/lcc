@@ -64,6 +64,44 @@ namespace Compiler.Generator
                     }
 
                     break;
+                case NodeType.BinaryOperatorNode:
+                    switch (((BinaryOperatorNode) rootNode).OperatorType)
+                    {
+                        case OperatorType.Addition:
+                            s = $"{Generate(rootNode.Children[0])}" +
+                                "push %rax\n" +
+                                $"{Generate(rootNode.Children[1])}" +
+                                "pop %rcx\n" +
+                                "add %ecx, %eax\n";
+                            break;
+                        case OperatorType.Subtraction:
+                            s = $"{Generate(rootNode.Children[1])}" +
+                                "push %rax\n" +
+                                $"{Generate(rootNode.Children[0])}" +
+                                "pop %rcx\n" +
+                                "sub %ecx, %eax\n";
+                            break;
+                        case OperatorType.Multiplication:
+                            s = $"{Generate(rootNode.Children[0])}" +
+                                "push %rax\n" +
+                                $"{Generate(rootNode.Children[1])}" +
+                                "pop %rcx\n" +
+                                "imul %rcx, %rax\n";
+                            break;
+                        case OperatorType.Division:
+                            s = $"{Generate(rootNode.Children[0])}" +
+                                "push %rax\n" +
+                                $"{Generate(rootNode.Children[1])}" +
+                                "movl %eax, %ecx" + //move calculated divisor to %ecx
+                                "pop %rbx\n" + //pop divident do %ebx
+                                "cdq\n" +
+                                "idivl %ecx\n";
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    break;
                 default:
                     throw new NotSpecifiedException(rootNode.NodeType);
             }

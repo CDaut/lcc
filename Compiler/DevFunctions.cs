@@ -104,28 +104,33 @@ namespace Compiler
 
         public static void DevMode()
         {
+            /*
             for (int i = 3; i <= 3; i++)
             {
                 Console.WriteLine($"---------------------valid, stage {i}-------------------------------");
                 foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/valid"))
                 {
-                    Console.WriteLine("-------------");
-                    List<Token> tokens = TestLexer(file, 0);
-                    Node programNode = TestParser(tokens, file, 1);
-                    //TestGenerator(programNode, 1);
-                }
+                */
 
-                
-                Console.WriteLine($"---------------------invalid, stage {i}-------------------------------");
-                foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/invalid"))
-                {
-                    Console.WriteLine("-------------");
-                    List<Token> tokens = TestLexer(file, 0);
-                    Node programNode = TestParser(tokens, file, 1);
-                    //TestGenerator(programNode, 1);
-                }
-                
+            string file = "/home/clemens/repositorys/lcc/stage_3/valid/sub.c";
+            
+            Console.WriteLine("-------------");
+            List<Token> tokens = TestLexer(file, 0);
+            Node programNode = TestParser(tokens, file, 1);
+            TestGenerator(programNode, 1);
+            //}
+
+            /*
+            Console.WriteLine($"---------------------invalid, stage {i}-------------------------------");
+            foreach (string file in Directory.GetFiles($"/home/clemens/repositorys/lcc/stage_{i}/invalid"))
+            {
+                Console.WriteLine("-------------");
+                List<Token> tokens = TestLexer(file, 0);
+                Node programNode = TestParser(tokens, file, 1);
+                //TestGenerator(programNode, 1);
             }
+            */
+            //}
         }
     }
 }
