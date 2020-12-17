@@ -92,10 +92,11 @@ namespace Compiler.Generator
                             s = $"{Generate(rootNode.Children[0])}" +
                                 "push %rax\n" +
                                 $"{Generate(rootNode.Children[1])}" +
-                                "movl %eax, %ecx" + //move calculated divisor to %ecx
-                                "pop %rbx\n" + //pop divident do %ebx
+                                "movl %eax, %ecx\n" + //move calculated divisor to %ecx
+                                "pop %rax\n" + //pop divident do %eax
                                 "cdq\n" +
-                                "idivl %ecx\n";
+                                "divl %ecx\n" +
+                                "movl %ecx, %eax\n";
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
