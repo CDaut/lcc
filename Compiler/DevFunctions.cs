@@ -112,7 +112,7 @@ namespace Compiler
                 {
                 */
 
-            string file = "/home/clemens/repositorys/lcc/stage_3/valid/complicated.c";
+            string file = "/home/clemens/repositorys/lcc/stage_3/valid/associativity_2.c";
             
             Console.WriteLine("-------------");
             List<Token> tokens = TestLexer(file, 0);

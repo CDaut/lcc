@@ -32,7 +32,7 @@ namespace Compiler.Parser
         }
 
         //The main RDP function
-        public Node Parse(NodeType nodeType, bool unopPrecedence = false)
+        public Node Parse(NodeType nodeType)
         {
             //switch over the nodeType to check in which part of the parser we are
             switch (nodeType)
@@ -50,18 +50,18 @@ namespace Compiler.Parser
                     return ParseReturnNode();
 
                 case NodeType.ExpressionNode:
-                    return ParseExpressionNode(unopPrecedence);
+                    return ParseExpressionNode();
 
                 //the case for term node is almost the same as the one for expression node
                 case NodeType.TermNode:
-                    return ParseTermNode(unopPrecedence);
+                    return ParseTermNode();
 
                 case NodeType.FactorNode:
                     return ParseFactorNode();
 
                 //code to parse unary operator nodes
                 case NodeType.UnaryOperatorNode:
-                    return ParseUnopNode(unopPrecedence);
+                    return ParseUnopNode();
 
                 //parse constant nodes
                 case NodeType.ConstantNode:
@@ -96,7 +96,7 @@ namespace Compiler.Parser
             {
                 throw new MissingTokenException(TokenType.IdentifierToken);
             }
-            
+
             //check if the identifier has a value 
             if (_tokenList[0].Value != null)
             {
@@ -151,7 +151,7 @@ namespace Compiler.Parser
             return n;
         }
 
-        private Node ParseExpressionNode(bool unopPrecedence)
+        private Node ParseExpressionNode()
         {
             if (_tokenList.Count == 0)
             {
@@ -168,10 +168,16 @@ namespace Compiler.Parser
 
             //if the next token is a + or a - it must be a binary operator because we are in an expression
             //that means that this is not a plain constant but a BinaryOperator node
-            //also check if the last token was a unary operator
-            while ((expressionToken.TokenType == TokenType.AdditionToken ||
-                    expressionToken.TokenType == TokenType.NegationToken) && !unopPrecedence)
+            while (expressionToken.TokenType == TokenType.AdditionToken ||
+                   expressionToken.TokenType == TokenType.NegationToken)
             {
+                //if this node is already a complete binary expression
+                //(if this while loop has already ran)
+                if (n.Children.Count == 2)
+                {
+                    firstTerm = n;
+                }
+
                 //remove the - or + token
                 _tokenList.RemoveAt(0);
                 switch (expressionToken.TokenType)
@@ -180,15 +186,22 @@ namespace Compiler.Parser
                     //2. Add the first term as a child
                     //3. Parse the rest as an expression and add it as the second term
                     case TokenType.AdditionToken:
+                        Node secondTerm = Parse(NodeType.TermNode);
                         n = new BinaryOperatorNode(OperatorType.Addition);
+
                         n.Children.Add(firstTerm);
-                        n.Children.Add(Parse(NodeType.ExpressionNode));
+                        n.Children.Add(secondTerm);
                         break;
+
                     case TokenType.NegationToken:
+                        secondTerm = Parse(NodeType.TermNode);
                         n = new BinaryOperatorNode(OperatorType.Subtraction);
+
                         n.Children.Add(firstTerm);
-                        n.Children.Add(Parse(NodeType.ExpressionNode));
+                        n.Children.Add(secondTerm);
                         break;
+
+
                     default:
                         //this should never happen because the while loop checks for token types, that are
                         //handled by case statements above only
@@ -210,7 +223,7 @@ namespace Compiler.Parser
             return n;
         }
 
-        private Node ParseTermNode(bool unopPrecedence)
+        private Node ParseTermNode()
         {
             if (_tokenList.Count == 0)
             {
@@ -225,22 +238,42 @@ namespace Compiler.Parser
 
             //parse second factor if it exists
             while ((termToken.TokenType == TokenType.MultiplicationToken ||
-                    termToken.TokenType == TokenType.DivisionToken) && !unopPrecedence)
+                    termToken.TokenType == TokenType.DivisionToken))
             {
+                //if this node is already a complete binary expression
+                //(if this while loop has already ran)
+                if (n.Children.Count == 2)
+                {
+                    //switch n to be the first factor so precedence is kept
+                    firstFactor = n;
+                }
+
+                //check if the next token is a * or an /
                 _tokenList.RemoveAt(0);
                 switch (termToken.TokenType)
                 {
+                    //if the next operation is multiplication
                     case TokenType.MultiplicationToken:
+                        //create a new multiplication node
                         n = new BinaryOperatorNode(OperatorType.Multiplication);
+                        //add the first factor
                         n.Children.Add(firstFactor);
-                        n.Children.Add(Parse(NodeType.TermNode));
+                        //parse and add the second factor
+                        Node secondFactor = Parse(NodeType.FactorNode);
+                        n.Children.Add(secondFactor);
                         break;
 
+                    //if the next operation is division
                     case TokenType.DivisionToken:
+                        //create a new division node
                         n = new BinaryOperatorNode(OperatorType.Division);
+                        //add the first child
                         n.Children.Add(firstFactor);
-                        n.Children.Add(Parse(NodeType.TermNode));
+                        //add the second child
+                        secondFactor = Parse(NodeType.FactorNode);
+                        n.Children.Add(secondFactor);
                         break;
+                    //This should never happen since the while loop checks 
                     default:
                         throw new Exception("WeirdException");
                 }
@@ -303,7 +336,7 @@ namespace Compiler.Parser
             return n;
         }
 
-        private Node ParseUnopNode(bool unopPrecedence)
+        private Node ParseUnopNode()
         {
             if (_tokenList.Count == 0)
             {
@@ -321,15 +354,15 @@ namespace Compiler.Parser
             {
                 case TokenType.BitwiseComplementToken:
                     n = new UnaryOperatorNode(OperatorType.BitwiseComplement);
-                    n.Children.Add(Parse(NodeType.ExpressionNode, unopPrecedence = true));
+                    n.Children.Add(Parse(NodeType.FactorNode));
                     break;
                 case TokenType.NegationToken:
                     n = new UnaryOperatorNode(OperatorType.Negation);
-                    n.Children.Add(Parse(NodeType.ExpressionNode, unopPrecedence = true));
+                    n.Children.Add(Parse(NodeType.FactorNode));
                     break;
                 case TokenType.LogicalNegationToken:
                     n = new UnaryOperatorNode(OperatorType.LogicalNegation);
-                    n.Children.Add(Parse(NodeType.ExpressionNode, unopPrecedence = true));
+                    n.Children.Add(Parse(NodeType.FactorNode));
                     break;
                 default:
                     throw new UnexpectedTokenException(TokenType.IntegerLiteralToken,

@@ -19,14 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bb6de-191c-4bd1-91ab-3953adfc5dfb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="a54bb6de-191c-4bd1-91ab-3953adfc5dfb" name="Default Changelist" comment="Lots of comments and cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Compiler/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DevFunctions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DevFunctions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generator/Generator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Generator/Generator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Parser/Parser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Parser/Parser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Parser/Nodes/ProgramNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Nodes/FunctionNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Nodes/ConstantNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87DBB896-6B20-4A14-9B6A-7AB43642646D/bb/d4cc6d05/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Exceptions/MissingSemicolonException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Exceptions/WrongTypeException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Parser/Parser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,8 +80,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.5698324" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.48789573" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34034768" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -93,7 +89,7 @@
     <property name="XThreadsFramesViewSplitterKey" value="0.44757032" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="codetogether.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -142,8 +138,17 @@
       <workItem from="1598260697761" duration="4427000" />
       <workItem from="1598873360208" duration="3527000" />
       <workItem from="1608233616774" duration="1881000" />
-      <workItem from="1608235612613" duration="1783000" />
+      <workItem from="1608235612613" duration="6721000" />
+      <workItem from="1608242348552" duration="4027000" />
     </task>
+    <task id="LOCAL-00001" summary="Lots of comments and cleanup">
+      <created>1608237399848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608237399848</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,8 +171,53 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Lots of comments and cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of comments and cleanup" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DevFunctions.cs</url>
+          <line>118</line>
+          <properties documentPath="$PROJECT_DIR$/DevFunctions.cs" initialLine="118" containingFunctionPresentation="method 'DevMode'">
+            <startOffsets>
+              <option value="3680" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3727" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Parser/Parser.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/Parser/Parser.cs" initialLine="52" containingFunctionPresentation="method 'Parse'">
+            <startOffsets>
+              <option value="1564" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1593" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Parser/Parser.cs</url>
+          <line>154</line>
+          <properties documentPath="$PROJECT_DIR$/Parser/Parser.cs" initialLine="154" containingFunctionPresentation="method 'ParseExpressionNode'">
+            <startOffsets>
+              <option value="4942" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4943" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Compiler.Parser.Nodes.Node" memberName="Children" />
