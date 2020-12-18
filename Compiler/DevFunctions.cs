@@ -112,12 +112,12 @@ namespace Compiler
                 {
                 */
 
-            string file = "/home/clemens/repositorys/lcc/stage_3/valid/precedence_add_a_lot.c";
+            string file = "/home/clemens/repositorys/lcc/stage_3/valid/div_2.c";
             
             Console.WriteLine("-------------");
             List<Token> tokens = TestLexer(file, 0);
             Node programNode = TestParser(tokens, file, 1);
-            //TestGenerator(programNode, 1);
+            TestGenerator(programNode, 1);
             //}
 
             /*
