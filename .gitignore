@@ -1,4 +1,5 @@
 venv/*
 Compiler/bin/*
 Compiler/obj/*
-.idea/*
+.idea/
+Compiler/.idea/
