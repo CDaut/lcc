@@ -55,7 +55,7 @@ namespace Compiler.Generator
                         case OperatorType.LogicalNegation:
                             s = $"{Generate(rootNode.Children[0])}" +
                                 "cmpl $0, %eax\n" +
-                                "movl $0, %eax\n" + //xorl %eax, %eax should also work, but doesn't
+                                "movl $0, %eax\n" + 
                                 "sete %al\n";
                             break;
                         default:
@@ -95,8 +95,7 @@ namespace Compiler.Generator
                                 "movl %eax, %ecx\n" + //move calculated divisor to %ecx
                                 "pop %rax\n" + //pop divident do %eax
                                 "cdq\n" +
-                                "divl %ecx\n" +
-                                "movl %ecx, %eax\n";
+                                "divl %ecx\n"; //eax contains the result, edx the rest
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
