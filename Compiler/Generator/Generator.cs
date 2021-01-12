@@ -95,7 +95,7 @@ namespace Compiler.Generator
                                 "movl %eax, %ecx\n" + //move calculated divisor to %ecx
                                 "pop %rax\n" + //pop divident do %eax
                                 "cdq\n" +
-                                "divl %ecx\n"; //eax contains the result, edx the rest
+                                "idivl %ecx\n"; //eax contains the result, edx the rest
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
