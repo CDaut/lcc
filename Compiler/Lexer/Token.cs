@@ -5,9 +5,9 @@ namespace Compiler.Lexer
 {
     public class Token
     {
-        public TokenType TokenType { get;  set; }
+        public TokenType TokenType { get; set; }
         public Object Value { get; set; }
-        public int Length { get; set;  }
+        public int Length { get; set; }
 
         public Token(TokenType pTokenType)
         {
@@ -20,10 +20,8 @@ namespace Compiler.Lexer
             {
                 return TokenType.ToString();
             }
-            else
-            {
-                return TokenType.ToString() + ":" + Value.ToString();
-            }
+
+            return TokenType.ToString() + ":" + Value.ToString();
         }
     }
 }
